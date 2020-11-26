@@ -34,7 +34,7 @@ if page == "Simulation":
     current = pd.DataFrame(data={'url' : [url], 'surface' : [surface],'prix' : [prix]})
     if st.button("Sauvegarder annonce"):
         annonces.append(current)
-    st.write(annonces)
+        st.write(annonces)
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

@@ -1,6 +1,21 @@
 #Packages
 import streamlit as st
 import pandas as pd
+from bs4 import BeautifulSoup
+import requests
+
+#Fonctions
+def get_data():
+    return []
+
+def scrap(url):
+    page = requests.get(url)
+    soup = BeautifulSoup(page.content, 'html.parser')
+    tree = html.fromstring(page.content)
+    soup.prettify()
+    surface = tree.xpath('//*[@id="grid"]/article/div[2]/div/div/div[2]'):
+    return surface
+
 
 #--------------Application Streamlit-------------#
 #Sidebar
@@ -23,19 +38,19 @@ if page == "Simulation":
     if choice == "A partir de l'URL":
         url = st.text_input("Collez ici l'adresse url de l'annonce")
         st.markdown(':warning: Vérifiez la validité des informations extraites')
+        @st.cache(allow_output_mutation=True)
+
+        if st.button("Sauvegarder annonce"):
+            get_data().append({"URL ": url})
+        
+        annonce = pd.DataFrame(get_data())
+        st.write(annonce)
+        st.write('surface', scrap(url))
+        
+        
     st.subheader('Paramètres simulation')
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)
-
-    @st.cache(allow_output_mutation=True)
-    def get_data():
-        return []
-
-    if st.button("Sauvegarder annonce"):
-        get_data().append({"URL ": url})
-        
-    annonce = pd.DataFrame(get_data())
-    st.write(annonce)
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

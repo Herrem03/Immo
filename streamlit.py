@@ -7,7 +7,7 @@ import pandas as pd
 def get_data():
     return []
 
-annonces = pd.DataFrame(data={'url', 'surface','prix'})
+annonces = pd.DataFrame(data={'url' : [], 'surface' : [],'prix' : []})
 
 # --------------Application Streamlit-------------#
 # Sidebar
@@ -26,15 +26,15 @@ if page == "Simulation":
     st.subheader('Bien à analyser')
     url = st.text_input("Collez ici l'adresse url de l'annonce")
     st.markdown(':warning: Vérifiez la validité des informations extraites')
-    if st.button("Sauvegarder annonce"):
-        annonces['url'].append(url)
-    st.write(annonces)
-
     st.subheader('Paramètres simulation')
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)
-    st.number_input('Valeur du bien')
-    st.number_input('Surface du bien')
+    prix = st.number_input('Prix du bien')
+    surface = st.number_input('Surface du bien')
+    current = pd.DataFrame(data={'url' : url, 'surface' : surface,'prix' : prix})
+    if st.button("Sauvegarder annonce"):
+        annonces.append(current)
+    st.write(annonces)
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

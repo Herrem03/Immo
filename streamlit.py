@@ -19,7 +19,7 @@ if page == "Simulation":
     st.subheader('Bien à analyser')
     choice = st.radio('Choisissez le mode de saisie', ['A la mano', "A partir de l'URL"])
     if choice == 'A la mano':
-        st.write'Non disponible"
+        st.write('Non disponible')
     if choice == "A partir de l'URL":
         url = st.text_input("Collez ici l'adresse url de l'annonce")
         st.markdown(':warning: Vérifiez la validité des informations extraites')

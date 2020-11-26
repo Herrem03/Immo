@@ -7,6 +7,7 @@ import pandas as pd
 def get_data():
     return []
 
+annonces = []
 
 # --------------Application Streamlit-------------#
 # Sidebar
@@ -26,10 +27,8 @@ if page == "Simulation":
     url = st.text_input("Collez ici l'adresse url de l'annonce")
     st.markdown(':warning: Vérifiez la validité des informations extraites')
     if st.button("Sauvegarder annonce"):
-        get_data().append({"URL ": url})
-
-    annonce = pd.DataFrame(get_data())
-    st.write(annonce)
+        annonces.append({"URL ": url})
+    st.write(annonces)
 
     st.subheader('Paramètres simulation')
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])

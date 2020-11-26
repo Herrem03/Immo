@@ -25,7 +25,6 @@ if page == "Simulation":
     st.subheader('Bien à analyser')
     url = st.text_input("Collez ici l'adresse url de l'annonce")
     st.markdown(':warning: Vérifiez la validité des informations extraites')
-    @st.cache(allow_output_mutation=True)
     if st.button("Sauvegarder annonce"):
         get_data().append({"URL ": url})
 

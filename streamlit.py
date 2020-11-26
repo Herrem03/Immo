@@ -27,7 +27,7 @@ if page == "Simulation":
     url = st.text_input("Collez ici l'adresse url de l'annonce")
     st.markdown(':warning: Vérifiez la validité des informations extraites')
     if st.button("Sauvegarder annonce"):
-        annonces.append({"url ": url})
+        annonces['url'].append(url)
     st.write(annonces)
 
     st.subheader('Paramètres simulation')

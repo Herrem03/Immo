@@ -36,8 +36,6 @@ if page == "Simulation":
         
     annonce = pd.DataFrame(get_data())
     st.write(annonce)
-    
-    annonce.to_csv("Annonces.csv", header=True, index=False, encoding='utf-8')
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

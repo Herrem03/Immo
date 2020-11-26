@@ -7,7 +7,7 @@ import pandas as pd
 def get_data():
     return []
 
-annonces = pd.DataFrame(data={'url': [], 'surface': [],'prix' : []})
+annonces = pd.DataFrame(data={'url', 'surface','prix'})
 
 # --------------Application Streamlit-------------#
 # Sidebar

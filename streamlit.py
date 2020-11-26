@@ -3,11 +3,8 @@ import streamlit as st
 import sys
 import os.path
 
-
-
-reload(sys)
 sys.setdefaultencoding('utf8')
-os.getcwd()
+
 
 #--------------Application Streamlit-------------#
 

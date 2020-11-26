@@ -1,11 +1,8 @@
-#Frameworks
+#Packages
 import streamlit as st
-
+import pandas as pd
 
 #--------------Application Streamlit-------------#
-
-
-
 #Sidebar
 st.sidebar.title("Analyse projet immobilier")
 page = st.sidebar.selectbox("Menu", ["Accueil", "Analyse macro", "Simulation", "A propos"])
@@ -26,6 +23,19 @@ if page == "Simulation":
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)
     page = st.button("Aller à l'accueil","Accueil")
+
+    @st.cache(allow_output_mutation=True)
+    def get_data():
+        return []
+
+    user_id = st.text_input("User ID")
+    foo = st.slider("foo", 0, 100)
+    bar = st.slider("bar", 0, 100)
+
+    if st.button("Add row"):
+        get_data().append({"UserID": user_id, "foo": foo, "bar": bar})
+
+    st.write(pd.DataFrame(get_data()))
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

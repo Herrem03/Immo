@@ -34,6 +34,7 @@ if page == "Simulation":
     st.subheader('Paramètres simulation')
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)
+    st.number_input('Valeur du bien')
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

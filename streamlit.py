@@ -31,7 +31,7 @@ if page == "Simulation":
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)
     prix = st.number_input('Prix du bien')
     surface = st.number_input('Surface du bien')
-    current = pd.DataFrame(data={'url' : url, 'surface' : surface,'prix' : prix})
+    current = pd.DataFrame(data={'url' : [url], 'surface' : [surface],'prix' : [prix]})
     if st.button("Sauvegarder annonce"):
         annonces.append(current)
     st.write(annonces)

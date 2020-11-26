@@ -15,7 +15,7 @@ def scrap(url):
     soup = BeautifulSoup(page.content, 'html.parser')
     tree = html.fromstring(page.content)
     soup.prettify()
-    surface = tree.xpath('//*[@id="grid"]/article/div[2]/div/div/div[2]/text()')
+    surface = tree.xpath('//*[@id="grid"]/article/div[2]/div/div/div[2]/div/p[2]/text()')
     return surface
 
 

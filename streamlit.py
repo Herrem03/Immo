@@ -17,8 +17,12 @@ if page == "Accueil":
 
 if page == "Simulation":
     st.subheader('Bien à analyser')
-    url = st.text_input("Collez ici l'adresse url de l'annonce")
-    st.markdown(':warning: Vérifiez la validité des informations extraites')
+    choice = st.radio('Choisissez le mode de saisie', ['A la mano', "A partir de l'URL"])
+    if choice == 'A la mano':
+        st.write'Non disponible"
+    if choice == "A partir de l'URL":
+        url = st.text_input("Collez ici l'adresse url de l'annonce")
+        st.markdown(':warning: Vérifiez la validité des informations extraites')
     st.subheader('Paramètres simulation')
     st.selectbox('Statut Fiscal', ['SCI', 'LMNP', 'SCCV'])
     st.slider("Nombre d'investisseurs", min_value=1, max_value=6, value=5, step=1)

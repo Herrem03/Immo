@@ -7,7 +7,7 @@ import pandas as pd
 def get_data():
     return []
 
-annonces = []
+annonces = pd.DataFrame(data={'url': [], 'surface': [],'prix' : []})
 
 # --------------Application Streamlit-------------#
 # Sidebar
@@ -27,7 +27,7 @@ if page == "Simulation":
     url = st.text_input("Collez ici l'adresse url de l'annonce")
     st.markdown(':warning: Vérifiez la validité des informations extraites')
     if st.button("Sauvegarder annonce"):
-        annonces.append({"URL ": url})
+        annonces.append({"url ": url})
     st.write(annonces)
 
     st.subheader('Paramètres simulation')

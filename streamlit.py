@@ -1,9 +1,5 @@
 #Frameworks
 import streamlit as st
-import sys
-import os.path
-
-sys.setdefaultencoding('utf8')
 
 
 #--------------Application Streamlit-------------#

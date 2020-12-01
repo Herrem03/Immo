@@ -17,10 +17,9 @@ st.sidebar.text('2020 v1.0.0')
 
 if page == "Accueil":
     st.header('Avant-propos')
-    st.markdown("Cet outil permet de simuler différents projets d'investissement immobilier à partir d'offres leboncoin.fr et seloger.com: ")
+    st.markdown("Cet outil permet de simuler différents projets d'investissement immobilier ")
     st.markdown("- SCI ")
     st.markdown("- LMNP ")
-    st.markdown("Le quartier est déterminé à partir de l'analyse sémantique de la description")
 
 if page == "Simulation":
     st.subheader('Bien à analyser')

@@ -35,7 +35,7 @@ if page == "Simulation":
     if st.button("Sauvegarder annonce"):
         annonces.append(current)
         st.write(annonces)
-    st.selectbox("TMI", ["0%", "11%", "30%", "41%", "45%"])
+    st.selectbox('TMI', ['0%', '11%', '30%', '41%', '45%'])
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')

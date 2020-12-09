@@ -46,7 +46,7 @@ if page == "Simulation":
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')
-    df = pd.read_csv ('/home/herrem/Documents/Banque/Investissement/Projet immobilier/BdD.csv')
+    df = pd.read_csv ('BdD.csv')
     st.dataframe(df)
     df['Prix de vente'] = df['Prix de vente'].astype(int)
     st.vega_lite_chart(df, {

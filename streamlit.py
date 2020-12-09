@@ -50,7 +50,7 @@ if page == "Analyse macro":
     st.dataframe(df)
     df['Prix de vente'] = df['Prix de vente'].astype(int)
     st.vega_lite_chart(df, {
-    "width": 800,
+    "width": 600,
     "height": 600,
     'mark': {'type': 'circle', 'tooltip': {"content": "df"}},
     'encoding': {

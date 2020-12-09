@@ -2,6 +2,14 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+import os
+import sys
+# Bokeh
+from bokeh.plotting import figure, show, output_file, save
+from bokeh.models import HoverTool, CustomJS, ColumnDataSource, Slider
+from bokeh.layouts import column
+from bokeh.palettes import all_palettes
+import re
 
 # Fonctions
 def get_data():
@@ -38,9 +46,26 @@ if page == "Simulation":
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')
-    df = pd.read_csv ('BdD.csv')
-    st.dataframe(df) 
+    df = pd.read_csv ('/home/herrem/Documents/Banque/Investissement/Projet immobilier/BdD.csv')
+    st.dataframe(df)
+    df['Prix de vente'] = df['Prix de vente'].astype(int)
+    st.vega_lite_chart(df, {
+    "width": 800,
+    "height": 600,
+    'mark': {'type': 'circle', 'tooltip': {"content": "df"}},
+    'encoding': {
+    'x': {'field': 'Prix de vente', 'type': 'quantitative'},
+    'y': {'field': 'Surface totale m²', 'type': 'quantitative'},
+    'size': {'field': 'Note localisation', 'type': 'quantitative'},
+    "color": {
+        "field": "Commune",
+        "type": "nominal",
+            },
+        },
+    })
 
 if page == "A propos":
     st.write('Auteur : Rémi Martinie')
     st.write('Version : v1.0.0')
+
+

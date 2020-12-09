@@ -2,14 +2,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-import os
-import sys
-# Bokeh
-from bokeh.plotting import figure, show, output_file, save
-from bokeh.models import HoverTool, CustomJS, ColumnDataSource, Slider
-from bokeh.layouts import column
-from bokeh.palettes import all_palettes
-import re
+
 
 # Fonctions
 def get_data():

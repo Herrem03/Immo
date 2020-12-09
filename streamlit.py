@@ -38,6 +38,8 @@ if page == "Simulation":
 
 if page == "Analyse macro":
     st.subheader('Analyse macro')
+    df = pd.read_csv ('BdD.csv')
+    st.dataframe(df) 
 
 if page == "A propos":
     st.write('Auteur : Rémi Martinie')

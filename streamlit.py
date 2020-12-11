@@ -2,7 +2,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-
+import numpy as np
 
 # Fonctions
 def get_data():
@@ -38,17 +38,19 @@ if page == "Simulation":
     st.selectbox('TMI', ['0%', '11%', '30%', '41%', '45%'])
 
 if page == "Analyse macro":
-    st.subheader('Analyse macro')
-    df = pd.read_csv ('BdD.csv')
+    st.subheader('Analyse macro vente')
+    df = pd.read_csv ('/home/herrem/Documents/Banque/Investissement/Projet immobilier/BdD.csv')
     st.dataframe(df)
     df['Prix de vente'] = df['Prix de vente'].astype(int)
+    x = st.selectbox("Variable en abscisse", df.columns)
+    y = st.selectbox("Variable en ordonnée", df.columns)
     st.vega_lite_chart(df, {
     "width": 600,
     "height": 600,
     'mark': {'type': 'circle', 'tooltip': {"content": "df"}},
     'encoding': {
-    'x': {'field': 'Prix de vente', 'type': 'quantitative'},
-    'y': {'field': 'Surface totale m²', 'type': 'quantitative'},
+    'x': {'field': x, 'type': 'quantitative'},
+    'y': {'field': y, 'type': 'quantitative'},
     'size': {'field': 'Note localisation', 'type': 'quantitative'},
     "color": {
         "field": "Commune",
@@ -56,6 +58,17 @@ if page == "Analyse macro":
             },
         },
     })
+    ville = st.selectbox('Sélectionner la ville', ['SAINT-ETIENNE', 'CLERMONT-FERRAND', 'GRENOBLE'])
+
+    i= 0
+    p_m=[]
+    for x in df['Commune']:
+        if ville == x:
+            p_m.append(df['€/m²'][i])
+        i+=1
+    st.write('Prix moyen du m² €', round(np.mean(p_m),1))
+
+    st.subheader('Analyse macro location')
 
 if page == "A propos":
     st.write('Auteur : Rémi Martinie')

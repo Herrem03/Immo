@@ -66,7 +66,7 @@ if page == "Analyse macro":
         if ville == x:
             p_m.append(df['€/m²'][i])
         i+=1
-    st.write('Prix moyen du m² €', round(np.mean(p_m),1))
+    st.write('Prix moyen du m² €', round(np.mean(p_m),1).astype(np.float))
 
     st.subheader('Analyse macro location')
 

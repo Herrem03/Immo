@@ -64,9 +64,9 @@ if page == "Analyse macro":
     p_m=[]
     for x in df['Commune']:
         if ville == x:
-            p_m.append(df['€/m²'][i])
+            p_m.append(df['€/m²'][i]).astype(np.float)
         i+=1
-    st.write('Prix moyen du m² €', round(np.mean(p_m),1).astype(np.float))
+    st.write('Prix moyen du m² €', round(np.mean(p_m),1))
 
     st.subheader('Analyse macro location')
 

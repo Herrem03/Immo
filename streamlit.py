@@ -11,10 +11,10 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 # --------------Data-------------#
-data_vente = pd.read_csv ('/home/herrem/Documents/Banque/Investissement/Projet immobilier/BdD_vente.csv')
+data_vente = pd.read_csv ('BdD_vente.csv')
 
 
-data_loc = pd.read_csv ('/home/herrem/Documents/Banque/Investissement/Projet immobilier/BdD_location.csv')
+data_loc = pd.read_csv ('BdD_location.csv')
 
 #Fonctions simulation
 

@@ -4,10 +4,6 @@ import pandas as pd
 import os, sys
 import numpy as np
 
-os.getcwd()
-reload(sys)
-sys.setdefaultencoding('utf8')
-
 # --------------Data-------------#
 data_vente = pd.read_csv ('BdD_vente.csv')
 
